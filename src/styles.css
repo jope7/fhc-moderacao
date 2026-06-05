@@ -101,6 +101,23 @@ nav.top-nav {
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(134, 239, 172, 0.04);
 }
 
+.themed-card {
+    background: linear-gradient(135deg, rgba(8, 47, 26, 0.96), rgba(3, 24, 14, 0.98));
+    border: 1px solid rgba(73, 185, 103, 0.18);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(134, 239, 172, 0.04);
+}
+
+.action-report {
+    background: #16a34a;
+    color: #ffffff;
+    border: 1px solid rgba(73, 185, 103, 0.32);
+    transition: background-color 200ms ease, border-color 200ms ease;
+}
+
+.action-report:hover {
+    background: #15803d;
+}
+
 .score-head {
     background: rgba(6, 78, 36, 0.42);
     color: #86efac;
