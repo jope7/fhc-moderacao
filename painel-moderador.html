@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Moderador - Fila de Triagem</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-950 text-gray-100 font-sans min-h-screen">
+
+    <!-- Navegação -->
+    <nav class="bg-gray-900 border-b border-gray-800 p-4 sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold text-indigo-400">SocialMod</h1>
+            <div class="space-x-4">
+                <a href="feed-usuario.html" class="text-gray-400 hover:text-gray-200">Feed (Usuário)</a>
+                <a href="painel-moderador.html" class="text-indigo-400 font-medium">Painel do Moderador</a>
+                <a href="painel-recursos.html" class="text-gray-400 hover:text-gray-200">Contestações</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="max-w-5xl mx-auto py-8 px-4">
+        <div class="mb-6">
+            <h2 class="text-2xl font-bold text-gray-200">Fila de Moderação Humana</h2>
+            <p class="text-sm text-gray-400 mt-1">Estado: <span class="text-yellow-500 font-medium">ANÁLISE / OCULTO MOMENTANEAMENTE</span>. Itens ordenados dinamicamente pelo Algoritmo de Priorização (SC DESC).</p>
+        </div>
+
+        <!-- Tabela/Fila Organizada -->
+        <div class="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden shadow-lg">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-gray-950 border-b border-gray-800 text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                        <th class="p-4">Conteúdo Sob Suspeita</th>
+                        <th class="p-4">Classificação Inicial</th>
+                        <th class="p-4 text-center">Denúncias</th>
+                        <th class="p-4 text-center bg-indigo-950/40 text-indigo-300">Score (SC)</th>
+                        <th class="p-4 text-right">Ações de Resolução</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-800 text-sm">
+                    
+                    <!-- Item 1: Doxing (Passa na frente pela gravidade do peso W1) -->
+                    <tr class="hover:bg-gray-850/50 transition-colors">
+                        <td class="p-4 max-w-xs">
+                            <span class="block text-xs text-gray-500 font-mono mb-1">Autor: @anon_404</span>
+                            <p class="text-gray-300 truncate">"Atenção! Descobri as informações do fulano... endereço é Rua das Flores..."</p>
+                        </td>
+                        <td class="p-4">
+                            <span class="px-2 py-1 text-xs font-semibold bg-red-950 text-red-400 border border-red-900 rounded-md">Nível 3 - Doxing</span>
+                        </td>
+                        <td class="p-4 text-center text-gray-300 font-medium">2</td>
+                        <td class="p-4 text-center bg-indigo-950/20 font-bold text-indigo-400 text-base">(10 × 2.0) + (2 × 0.5) = <span class="text-white">21.0</span></td>
+                        <td class="p-4 text-right space-x-2 whitespace-nowrap">
+                            <button onclick="aplicarAcao('Absolvido e movido para SINALIZADO')" class="px-3 py-1.5 text-xs bg-gray-800 hover:bg-yellow-950 hover:text-yellow-400 font-medium rounded-lg transition-colors">Sinalizar/Manter</button>
+                            <button onclick="aplicarAcao('Punitivo e movido para REMOVIDO')" class="px-3 py-1.5 text-xs bg-red-900 hover:bg-red-800 font-semibold rounded-lg transition-colors">Remover Post</button>
+                        </td>
+                    </tr>
+
+                    <!-- Item 2: Spam (Possui muitas denúncias, mas score final é menor) -->
+                    <tr class="hover:bg-gray-850/50 transition-colors">
+                        <td class="p-4 max-w-xs">
+                            <span class="block text-xs text-gray-500 font-mono mb-1">Autor: @bot_ganhe_dinheiro</span>
+                            <p class="text-gray-300 truncate">"GANHE CRIPTOMOEDAS FACILMENTE CLIQUE NO LINK ABAIXO AGORA!!!"</p>
+                        </td>
+                        <td class="p-4">
+                            <span class="px-2 py-1 text-xs font-semibold bg-gray-800 text-gray-400 border border-gray-700 rounded-md">Nível 1 - Spam</span>
+                        </td>
+                        <td class="p-4 text-center text-gray-300 font-medium">20</td>
+                        <td class="p-4 text-center bg-indigo-950/20 font-bold text-indigo-400 text-base">(1 × 2.0) + (20 × 0.5) = <span class="text-white">12.0</span></td>
+                        <td class="p-4 text-right space-x-2 whitespace-nowrap">
+                            <button onclick="aplicarAcao('Absolvido e movido para SINALIZADO')" class="px-3 py-1.5 text-xs bg-gray-800 hover:bg-yellow-950 hover:text-yellow-400 font-medium rounded-lg transition-colors">Sinalizar/Manter</button>
+                            <button onclick="aplicarAcao('Punitivo e movido para REMOVIDO')" class="px-3 py-1.5 text-xs bg-red-900 hover:bg-red-800 font-semibold rounded-lg transition-colors">Remover Post</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script>
+        function aplicarAcao(mensagem) {
+            alert('Desfecho aplicado pelo moderador humano: ' + mensagem + '. O conteúdo foi despachado da fila e atualizado na base de dados.');
+        }
+    </script>
+</body>
+</html>
