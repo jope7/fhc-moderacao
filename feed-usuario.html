@@ -24,43 +24,71 @@
     <main class="max-w-2xl mx-auto py-8 px-4">
         <h2 class="text-2xl font-bold mb-6 text-gray-200">Feed Principal</h2>
 
-        <!-- Card de Post 1 (Limpo) -->
+        <!-- Post 1: Limpo -->
         <article class="bg-gray-900 border border-gray-800 rounded-xl p-5 mb-4 shadow-sm">
             <div class="flex justify-between items-start mb-3">
                 <div>
-                    <span class="font-semibold text-gray-300">@dev_pedro</span>
-                    <span class="text-xs text-gray-500 block">Postado há 10 min</span>
+                    <span class="font-semibold text-gray-300">@jope_beats</span>
+                    <span class="text-xs text-gray-500 block">Postado há 12 min</span>
                 </div>
-                <button onclick="abrirModal('Discurso de Ódio', 10)" class="text-xs bg-gray-800 hover:bg-red-950 hover:text-red-400 text-gray-400 px-3 py-1.5 rounded-lg transition-colors">
+                <button onclick="abrirModal('Discurso de Ódio')" class="text-xs bg-gray-800 hover:bg-red-950 hover:text-red-400 text-gray-400 px-3 py-1.5 rounded-lg transition-colors">
                     ⚠️ Denunciar
                 </button>
             </div>
-            <p class="text-gray-300">Estou terminando de modelar a máquina de estados para o trabalho de Formação Humanística. Essa matéria é muito massa! 🚀</p>
+            <p class="text-gray-300">Fechando a mixagem do próximo projeto de boombap. Ajustando os LUFS e a saturação fina nos instrumentos. O som tá ficando pesado! 🎧🔥</p>
         </article>
 
-        <!-- Card de Post 2 (Nível 3 em potencial - Doxing) -->
+        <!-- Post 2: Pirataria / Propriedade Intelectual (Nível 3) -->
         <article class="bg-gray-900 border border-gray-800 rounded-xl p-5 mb-4 shadow-sm">
             <div class="flex justify-between items-start mb-3">
                 <div>
-                    <span class="font-semibold text-gray-300">@anon_404</span>
-                    <span class="text-xs text-gray-500 block">Postado há 2 min</span>
+                    <span class="font-semibold text-gray-300">@crack_master_rn</span>
+                    <span class="text-xs text-gray-500 block">Postado há 4 min</span>
                 </div>
-                <button onclick="abrirModal('Doxing / Dados Pessoais', 10)" class="text-xs bg-gray-800 hover:bg-red-950 hover:text-red-400 text-gray-400 px-3 py-1.5 rounded-lg transition-colors">
+                <button onclick="abrirModal('Pirataria / Propriedade Intelectual')" class="text-xs bg-gray-800 hover:bg-red-950 hover:text-red-400 text-gray-400 px-3 py-1.5 rounded-lg transition-colors">
                     ⚠️ Denunciar
                 </button>
             </div>
-            <p class="text-gray-300">Atenção! Descobri as informações do fulano que me xingou ontem. O endereço dele é Rua das Flores, 123, e o telefone dele é (84) 99999-9999. Vamos lá cobrar!</p>
+            <p class="text-gray-300">Vazou o link com o instalador crackeado do FL Studio 2026 completo com todos os plugins liberados! Baixem antes que derrubem: bit.ly/fl-studio-2026-crack-gratis</p>
+        </article>
+
+        <!-- Post 3: Controverso - Rage Baiting / Polarização (Nível 1) -->
+        <article class="bg-gray-900 border border-gray-800 rounded-xl p-5 mb-4 shadow-sm">
+            <div class="flex justify-between items-start mb-3">
+                <div>
+                    <span class="font-semibold text-gray-300">@opiniao_revoltada</span>
+                    <span class="text-xs text-gray-500 block">Postado há 25 min</span>
+                </div>
+                <button onclick="abrirModal('Provocação / Rage Bait')" class="text-xs bg-gray-800 hover:bg-red-950 hover:text-red-400 text-gray-400 px-3 py-1.5 rounded-lg transition-colors">
+                    ⚠️ Denunciar
+                </button>
+            </div>
+            <p class="text-gray-300">Quem trabalha com T.I. e programação hoje em dia nem deveria ser considerado trabalhador de verdade. Passam o dia sentados no ar-condicionado batendo teclado. Quero ver pegar no pesado!</p>
+        </article>
+
+        <!-- Post 4: Controverso - Desinformação / Boato Limítrofe (Nível 2) -->
+        <article class="bg-gray-900 border border-gray-800 rounded-xl p-5 mb-4 shadow-sm">
+            <div class="flex justify-between items-start mb-3">
+                <div>
+                    <span class="font-semibold text-gray-300">@verdades_ocultas_99</span>
+                    <span class="text-xs text-gray-500 block">Postado há 1 hora</span>
+                </div>
+                <button onclick="abrirModal('Desinformação / Fake News')" class="text-xs bg-gray-800 hover:bg-red-950 hover:text-red-400 text-gray-400 px-3 py-1.5 rounded-lg transition-colors">
+                    ⚠️ Denunciar
+                </button>
+            </div>
+            <p class="text-gray-300">Urgente: Nova inteligência artificial autônoma rodando em servidores ocultos em Natal descobriu como quebrar qualquer criptografia de banco. Tirem o dinheiro das contas imediatamente antes do colapso!! 🚨🚨</p>
         </article>
     </main>
 
-    <!-- Modal de Denúncia Simulado -->
+    <!-- Modal de Denúncia -->
     <div id="modalDenuncia" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 max-w-md w-full shadow-2xl">
             <h3 class="text-lg font-bold text-red-400 mb-3">Confirmar Denúncia</h3>
-            <p class="text-sm text-gray-400 mb-4">Ao denunciar, este conteúdo será enviado imediatamente para o estado <span class="text-yellow-400 font-semibold">ANÁLISE / OCULTO MOMENTANEAMENTE</span> e será ocultado do feed público até a avaliação humana.</p>
+            <p class="text-sm text-gray-400 mb-4">Ao denunciar, este conteúdo será enviado imediatamente para o estado <span class="text-yellow-400 font-semibold">ANÁLISE / OCULTO MOMENTANEAMENTE</span> e sumirá do feed público até a avaliação humana.</p>
             
             <div class="bg-gray-950 p-3 rounded-lg mb-4 text-xs text-gray-300">
-                <strong>Categoria detectada:</strong> <span id="modalCategoria"></span>
+                <strong>Categoria selecionada:</strong> <span id="modalCategoria" class="text-indigo-400"></span>
             </div>
 
             <div class="flex justify-end space-x-3">
@@ -79,7 +107,7 @@
             document.getElementById('modalDenuncia').classList.add('hidden');
         }
         function confirmarDenuncia() {
-            alert('Conteúdo denunciado com sucesso! O post foi movido para o estado "ANÁLISE" e ocultado preventivamente do feed público.');
+            alert('Conteúdo ocultado! O estado do post mudou para "ANÁLISE" e ele foi inserido na fila humana de prioridade.');
             fecharModal();
         }
     </script>

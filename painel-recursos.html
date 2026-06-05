@@ -21,41 +21,59 @@
     </nav>
 
     <!-- Conteúdo Principal -->
-    <main class="max-w-2xl mx-auto py-8 px-4">
-        <h2 class="text-2xl font-bold mb-2 text-gray-200">Notificações de Moderação</h2>
-        <p class="text-sm text-gray-400 mb-6">Central de conformidade jurídica e direito à ampla defesa do usuário.</p>
+    <main class="max-w-3xl mx-auto py-8 px-4">
+        <h2 class="text-2xl font-bold mb-2 text-gray-200">Central de Transparência e Ampla Defesa</h2>
+        <p class="text-sm text-gray-400 mb-8">Aqui você acompanha as decisões da plataforma sobre as suas postagens e pode contestar sanções automatizadas ou humanas.</p>
 
-        <!-- Card de Penalidade Ativa (Estado REMOVIDO) -->
-        <div class="bg-gray-900 border border-red-900/40 rounded-xl p-6 shadow-lg">
-            <div class="flex items-center space-x-2 text-red-400 font-semibold mb-4">
-                <span>🚫</span>
-                <h3>Publicação Removida Definitivamente</h3>
+        <!-- ITEM DE RECURSO 1: ESTADO REMOVIDO CRÍTICO -->
+        <section class="bg-gray-900 border border-red-900/30 rounded-xl p-6 mb-6 shadow-md">
+            <div class="flex items-center space-x-2 text-red-400 font-semibold mb-3">
+                <span class="text-lg">🚫</span>
+                <h3>Publicação Removida (Invisível no Feed)</h3>
+            </div>
+            
+            <div class="bg-gray-950 p-4 rounded-lg border border-gray-850 mb-4 space-y-2 text-xs">
+                <p class="text-gray-400"><strong>Post ocultado:</strong> <span class="italic text-gray-500">"Vazou o link com o instalador crackeado do FL Studio 2026 completo com todos os..."</span></p>
+                <p class="text-gray-300"><strong>Infração:</strong> Diretriz 2.A — Distribuição Não Autorizada de Propriedade Intelectual (Pirataria).</p>
+                <p class="text-gray-400"><strong>Justificativa da IA/Moderação:</strong> O link fornecido direcionava para um repositório externo contendo arquivos modificados de software proprietário comercial.</p>
             </div>
 
-            <!-- Explicabilidade -->
-            <div class="bg-gray-950 p-4 rounded-lg border border-gray-850 mb-6 space-y-2 text-sm">
-                <p class="text-gray-400"><strong>Texto original ocultado:</strong> <span class="italic text-gray-500">"Atenção! Descobri as informações do fulano... o endereço dele é..."</span></p>
-                <p class="text-gray-300"><strong>Regra Violada:</strong> Diretriz 1.B — Exposição de Dados Pessoais de Terceiros (<span class="text-red-400">Doxing</span>).</p>
-                <p class="text-gray-400"><strong>Motivo Técnico:</strong> O sistema identificou sequências compatíveis com CEP, logradouros e números telefônicos privados sem autorização prévia.</p>
-            </div>
-
-            <!-- Formulário de Recurso -->
-            <form onsubmit="enviarRecurso(event)" class="space-y-4">
-                <label class="block text-sm font-medium text-gray-300">Deseja contestar a remoção? Justifique abaixo:</label>
-                <textarea required rows="4" placeholder="Escreva detalhadamente seus argumentos legais ou informe se houve um falso positivo..." class="w-full p-3 bg-gray-950 border border-gray-800 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-indigo-500 transition-colors placeholder:text-gray-600"></textarea>
-                
-                <div class="flex justify-end space-x-3 text-xs">
-                    <span class="text-gray-500 self-center">O recurso passará por uma segunda instância de moderação sênior.</span>
-                    <button type="submit" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 font-semibold rounded-lg transition-colors">Enviar Recurso</button>
+            <form onsubmit="enviarContestacao(event, 'Pirataria')" class="space-y-3">
+                <label class="block text-xs font-medium text-gray-300">Contestar decisão (O recurso será julgado por uma junta técnica sênior):</label>
+                <textarea required rows="2" placeholder="Argumente por que este conteúdo não viola as diretrizes de direitos autorais..." class="w-full p-2.5 bg-gray-950 border border-gray-800 rounded-lg text-xs text-gray-200 focus:outline-none focus:border-indigo-500 transition-colors placeholder:text-gray-700"></textarea>
+                <div class="flex justify-end">
+                    <button type="submit" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-xs font-semibold rounded-lg transition-colors">Protocolar Recurso</button>
                 </div>
             </form>
-        </div>
+        </section>
+
+        <!-- ITEM DE RECURSO 2: ESTADO SINALIZADO / MANTIDO -->
+        <section class="bg-gray-900 border border-yellow-900/30 rounded-xl p-6 shadow-md">
+            <div class="flex items-center space-x-2 text-yellow-500 font-semibold mb-3">
+                <span class="text-lg">⚠️</span>
+                <h3>Publicação Sinalizada (Visível com Restrição de Alcance)</h3>
+            </div>
+            
+            <div class="bg-gray-950 p-4 rounded-lg border border-gray-850 mb-4 space-y-2 text-xs">
+                <p class="text-gray-400"><strong>Post marcado:</strong> <span class="italic text-gray-500">"Quem trabalha com T.I. e programação hoje em dia nem deveria ser considerado trabalhador..."</span></p>
+                <p class="text-gray-300"><strong>Infração:</strong> Diretriz 4.D — Comportamento Antissocial em Comunidade (Rage Baiting).</p>
+                <p class="text-gray-400"><strong>Justificativa da IA/Moderação:</strong> Publicação deliberada com teor altamente provocativo estruturado para gerar engajamento inautêntico por indignação da comunidade.</p>
+            </div>
+
+            <form onsubmit="enviarContestacao(event, 'Rage Baiting')" class="space-y-3">
+                <label class="block text-xs font-medium text-gray-300">Contestar aplicação do selo de advertência:</label>
+                <textarea required rows="2" placeholder="Argumente o valor humorístico, satírico ou de livre expressão da sua publicação..." class="w-full p-2.5 bg-gray-950 border border-gray-800 rounded-lg text-xs text-gray-200 focus:outline-none focus:border-indigo-500 transition-colors placeholder:text-gray-700"></textarea>
+                <div class="flex justify-end">
+                    <button type="submit" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-xs font-semibold rounded-lg transition-colors">Contestar Sinalização</button>
+                </div>
+            </form>
+        </section>
     </main>
 
     <script>
-        function enviarRecurso(e) {
+        function enviarContestacao(e, contexto) {
             e.preventDefault();
-            alert('Recurso protocolado com sucesso! A postagem entrará novamente na esteira de reavaliação humana em conformidade com o Duplo Grau de Jurisdição.');
+            alert('Contestação enviada! O post associado à categoria [' + contexto + '] foi enviado para a fila de recursos para análise humana de segunda instância em conformidade com as regras do sistema.');
         }
     </script>
 </body>
